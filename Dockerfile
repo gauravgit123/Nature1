@@ -10,6 +10,10 @@ RUN apt-get update && apt-get upgrade -y
 # Install the openssh server 
 RUN apt-get -y install openssh-server
 
+# User add and swicha user 
+RUN useradd -m -d /home/Nature1 -s /bin/bash Nature1
+USER Nature1
+
 # Active the openssh server 
 ENTRYPOINT service ssh start && bash
 
